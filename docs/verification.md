@@ -1,6 +1,6 @@
 # Verification — 2026-10-23
 
-Release state is separate from these checks. Requires the Blob-media host change in Aide PR #47, targeted to RC6. Production port 9999 is untouched.
+Video Preview0.1.0, Aide RC7 and the public marketplace are published. PR47 introduced Blob media support in RC6; RC7 fixes full-bundle startup. Release identities and acceptance boundaries are in docs/release-0.1.0.json. Production9999 was not operated by this task.
 
 ## Automated and native checks
 
@@ -43,4 +43,14 @@ The old imageio binary candidate was excluded. No unverified GPL3/nonfree decode
 
 Video Preview0.1.0 published at https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/tag/v0.1.0 from3935bcde407a85be372909f9fabca697b2da151c. All six payload/build-manifest assets downloaded anonymously with matching SHA256SUMS; downloaded source archive contains the exact locked upstream source hashes and actual configurations for both architectures. See docs/release-0.1.0.json. Fresh empty-cache installation from the public GitHub URLs PASS on ARM64(native) and AMD64(Docker emulation); both then passed AVI/MKV proxy conversion, corrupt-input rejection and upload cancellation/source cleanup. A test harness initially assumed ffprobe at /engine; corrected the harness to point to the actual installed cache without product changes, then reran both paths successfully.
 
-PR47 merged as2ac30f63543b6af9b08e4a105a8700772b2d2773 by explicit user-authorized admin merge, without fabricated approval or changed branch protection. Local full verification completed all24 Go shards, all other race packages and vet successfully, but the last optional STEP check targeted the old default aide:local image and failed. No passing full receipt was claimed. A new complete main-checkout run targets the tested aide:video-preview-host-20261023 image via AIDE_TEST_IMAGE. RC6 and marketplace publication remain separate pending gates.
+PR47 merged as2ac30f63543b6af9b08e4a105a8700772b2d2773 by explicit user-authorized admin merge, without fabricated approval or changed branch protection. Local full verification completed all24 Go shards, all other race packages and vet successfully, but the last optional STEP check targeted the old default aide:local image and failed. No passing full receipt was claimed. That was an initial pre-release attempt. The later combined-source full gate and both published native deliveries passed as recorded below; the earlier failed receipt was not reused.
+
+
+## Final public host and market acceptance
+
+- Aide RC7 is public at commit47c9e4486001549534b9c36e0fe0d5d5d8447114. Official delivery39949263487 passed source, Windows contracts, both native CPU builds, race/vet, runtime assets, default STEP/DXF/STL boundary, private-plugin layer audit, ZIP checksums/startup-file presence, import and API smoke. Combined local full passed all24 disjoint server shards (1187 registered entries), other race packages and vet.
+- Downloaded the actual public ARM64 full ZIP anonymously:631525993 bytes, SHA256 ad95022739ad75e4e4d4cf2334f099340921afc16e00ccb601be7816e83bd47b. ZIP CRC and embedded archive hash passed; actual Docker platform/source label match the release proof. The publisher image ID differs from Docker Desktop's imported local ID; RC7 correctly resolves it.
+- Extracted public RC7 scripts unchanged and ran start.command on Mac with a dedicated slot alias, Compose project and port18491. Fresh startup, CA-verified HTTPS health, version, commit and release-image runtime mode PASS.22 mandatory startup files are present. System-only PATH intentionally has no Node, so optional browser/computer/headless bridges were not invoked or accepted by this fixture.
+- Safari playback/proxy/subtitle/export acceptance was on the public RC6 host (the media-host code is unchanged in RC7). Saved public-core and public-market screenshots alongside earlier feature screenshots. This does not claim a second RC7 Safari/media run.
+- Market PR7 merged57e7ebca1684f728c05caa1903994ff0e46d92b4; Pages39955074585 passed. Anonymous live catalog/routing source is47c9e4486001549534b9c36e0fe0d5d5d8447114. Public Video Preview ZIP remains45079 bytes /652e923f0a6158681974486b91dfafe2723b8ce18de325de208be9bee31ce396; all25 public packages and STEP Viewer0.1.1 preserved. The verification harness initially looked up the nonexistent step-preview ID, then used the actual step-viewer ID; no market/product repair was required.
+- RC6 full-package issues52/53 were found during actual public-package acceptance and repaired by an immutable RC7 follow-up, without replacing RC6 assets/tag. Owned Safari18490 tab closed, user9999 tab preserved. Owned18490/18491 containers and fixture helpers stopped; recovery data retained. No production deployment.

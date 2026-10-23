@@ -51,5 +51,57 @@
     "corrupt input rejected",
     "cancelled upload worker reclaimed source"
   ],
-  "host": "Requires RC6 with merged PR47; host publication and marketplace are still pending. Production9999 unchanged."
+  "host": {
+    "version": "0.1.17.5 RC7",
+    "release": "https://github.com/skyelan1999/aide/releases/tag/v0.1.17.5-RC7",
+    "commit": "47c9e4486001549534b9c36e0fe0d5d5d8447114",
+    "deliveryRun": 39949263487,
+    "nativeARM64": "PASS race/vet/assets/package/privacy/re-import/smoke",
+    "nativeAMD64": "PASS race/vet/assets/package/privacy/re-import/smoke",
+    "browserMediaAcceptance": "PASS Safari on public RC6; no media-host changes in RC7, which repairs offline bootstrap/package inputs",
+    "publicArchive": {
+      "tag": "v0.1.17.5-RC7",
+      "commit": "47c9e4486001549534b9c36e0fe0d5d5d8447114",
+      "image": "sha256:65031f665ca63121d168c999c37c2dffa862cecfb12df7631eea7b054bb4c6da",
+      "imageId": "sha256:65031f665ca63121d168c999c37c2dffa862cecfb12df7631eea7b054bb4c6da",
+      "publisherImageId": "sha256:46d92fae2202b9f29f669e472ea9f123e9b49fd083482f35d92957e215a52759",
+      "idFormatResolution": "verified archive import reference + actual platform/source label",
+      "asset": "aide-v0.1.17.5-RC7-full-linux-arm64.zip",
+      "bytes": 631525993,
+      "sha256": "ad95022739ad75e4e4d4cf2334f099340921afc16e00ccb601be7816e83bd47b",
+      "archiveSHA256": "95b4ed74bbc49f18661294d5272f529cbe5c28792d878e049ebc0534105cd36f",
+      "publicRelease": "https://github.com/skyelan1999/aide/releases/tag/v0.1.17.5-RC7",
+      "zipCRC": "pass",
+      "publicDownload": "pass",
+      "imported": true
+    },
+    "publicMacBootstrap": {
+      "status": "pass",
+      "tag": "v0.1.17.5-RC7",
+      "commit": "47c9e4486001549534b9c36e0fe0d5d5d8447114",
+      "version": "0.1.17.5 RC7",
+      "health": "ok",
+      "runtimeMode": "release-image",
+      "imageId": "sha256:65031f665ca63121d168c999c37c2dffa862cecfb12df7631eea7b054bb4c6da",
+      "launcher": "Unmodified published scripts; only isolated slot alias, port18491 and compose project configured",
+      "startupHelpers": "All22 mandatory startup files present; actual Mac start.command exit0",
+      "production9999": "not operated",
+      "optionalBrowserBridges": "Not invoked: node is absent from the standard system-only PATH used for this fixture"
+    }
+  },
+  "marketplace": {
+    "status": "pass",
+    "url": "https://skyelan1999.github.io/aide-pkg-shop/",
+    "sourceCommit": "47c9e4486001549534b9c36e0fe0d5d5d8447114",
+    "marketPR": "https://github.com/skyelan1999/aide-pkg-shop/pull/7",
+    "mergeCommit": "57e7ebca1684f728c05caa1903994ff0e46d92b4",
+    "pagesRun": 39955074585,
+    "publicPackageCount": 25,
+    "STEPpreserved": "0.1.1",
+    "package": "packages/video-preview/0.1.0-652e923f0a61.zip",
+    "bytes": 45079,
+    "sha256": "652e923f0a6158681974486b91dfafe2723b8ce18de325de208be9bee31ce396",
+    "recommendedHost": "0.1.17.5 RC7"
+  },
+  "cleanup": "Owned Safari18490 acceptance tab closed; user9999 page and other tabs preserved. Owned18490/18491 containers and fixture host helpers stopped; data/receipts retained. Production9999 not operated by this task."
 }
