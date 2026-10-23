@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "release": "https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/tag/v0.1.0",
+  "sourceCommit": "3935bcde407a85be372909f9fabca697b2da151c",
+  "published": true,
+  "assets": [
+    {
+      "name": "aide-pkg-video-preview-v0.1.0.zip",
+      "bytes": 45079,
+      "sha256": "652e923f0a6158681974486b91dfafe2723b8ce18de325de208be9bee31ce396",
+      "anonymousDownload": "pass"
+    },
+    {
+      "name": "video-engine-corresponding-source-v0.1.0.tar.gz",
+      "bytes": 13207330,
+      "sha256": "286b9f3e7ebc68aa78590443585fc18dc618fbd82f441b6899b4d19e42125c77",
+      "anonymousDownload": "pass"
+    },
+    {
+      "name": "video-engine-linux-arm64.tar.gz",
+      "bytes": 8185741,
+      "sha256": "417c580932c2b860d5f190d2a0ed28af6a6bf11908f6baa5afe92d5e08a009ed",
+      "anonymousDownload": "pass"
+    },
+    {
+      "name": "video-engine-linux-arm64.tar.json",
+      "bytes": 2708,
+      "sha256": "197c6c4a63d4564a55da02d6c98461c37f989df3b798001454e08b21a9c57fe8",
+      "anonymousDownload": "pass"
+    },
+    {
+      "name": "video-engine-linux-amd64.tar.gz",
+      "bytes": 8026721,
+      "sha256": "c012e124d923ad7411973bf96bc105ae83251f88f6223134b9b6d8e214329585",
+      "anonymousDownload": "pass"
+    },
+    {
+      "name": "video-engine-linux-amd64.tar.json",
+      "bytes": 2707,
+      "sha256": "4f58db3403525a2dc1bdac67a7cea18b0b433d8cb0fb7962f1c5f5d6edf6be21",
+      "anonymousDownload": "pass"
+    }
+  ],
+  "publicEngineFirstInstall": {
+    "arm64": "PASS native",
+    "amd64": "PASS Docker emulation; native CI build separately passed"
+  },
+  "publicEngineConversions": [
+    "MPEG4/PCM AVI to H264/AAC MP4",
+    "silent VP9 MKV to silent H264 MP4",
+    "corrupt input rejected",
+    "cancelled upload worker reclaimed source"
+  ],
+  "host": "Requires RC6 with merged PR47; host publication and marketplace are still pending. Production9999 unchanged."
+}
