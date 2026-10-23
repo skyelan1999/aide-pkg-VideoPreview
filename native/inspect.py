@@ -45,7 +45,11 @@ def inspect(data,name):
      clips=[];cursor=0
      for c in node.get('children',[]):
       sr=c.get('source_range') or {};d=sr.get('duration') or {};dur=seconds(d.get('value',0));rate=seconds(d.get('rate',1));dur=dur/rate if dur is not None and rate else None
-      ref=c.get('media_reference') or {};p=ref.get('target_url','');media(p,c.get('name',''))
+      refs=c.get('media_references') or {};ref=c.get('media_reference') or refs.get(c.get('active_media_reference_key','DEFAULT_MEDIA')) or {};p=ref.get('target_url','');media(p,c.get('name',''))
+      if c.get('OTIO_SCHEMA','').startswith('Transition.'):
+       out['warnings'].append('转场仅列出索引，不占用顺序时间；未合成转场画面。');dur=0
+      if c.get('effects') or c.get('OTIO_SCHEMA','').startswith('Stack.'):
+       out['warnings'].append('存在嵌套或速度/效果；索引不代表精确合成时间线。')
       clips.append(clip(c.get('name') or c.get('OTIO_SCHEMA','clip'),cursor,dur,p));cursor+=dur or 0
      track(node.get('name') or 'Track',clips,node.get('kind','Video').lower())
     for key in ('tracks','children'):

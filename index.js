@@ -5,6 +5,7 @@ function init(){fs.mkdirSync(ROOT,{recursive:true,mode:0o700});for(const n of fs
 function dir(id){if(!/^[a-f0-9]{48}$/.test(id||''))throw Error('Invalid session');const d=path.join(ROOT,id);if(!fs.lstatSync(d).isDirectory()||fs.lstatSync(d).isSymbolicLink())throw Error('Invalid session');return d;}
 function integer(n,max){if(!Number.isSafeInteger(n)||n<0||n>max)throw Error('Invalid range');return n;}
 function io(a){
+ if(a.action?.startsWith('engine-')||a.action?.startsWith('media-'))return require('./native/media.js').io(a);
  init();if(a.action==='begin'){
   integer(a.size,LIMIT);if(!a.size)throw Error('Empty project');
   if(fs.readdirSync(ROOT).filter(n=>/^[a-f0-9]{48}$/.test(n)).length>=4)throw Error('已有多个工程正在读取，请关闭后重试');
@@ -25,4 +26,4 @@ function io(a){
  }
  throw Error('Unknown action');
 }
-module.exports={name:'video-preview',apply(ctx){ctx.tool({name:'video_preview_io',description:'只读、限量解析当前绑定的剪辑工程。素材路径仅索引，不会执行工程或访问素材地址。',parameters:{type:'object',properties:{action:{type:'string',enum:['begin','write','inspect','cancel']},id:{type:'string'},name:{type:'string'},size:{type:'integer'},offset:{type:'integer'},data:{type:'string'}},required:['action'],additionalProperties:false},handler:io});}};
+module.exports={name:'video-preview',apply(ctx){ctx.tool({name:'video_preview_io',description:'只读、限量解析当前绑定的剪辑工程。素材路径仅索引，不会执行工程或访问素材地址。',parameters:{type:'object',properties:{action:{type:'string',enum:['begin','write','inspect','cancel','engine-status','engine-install','media-begin','media-write','media-start','media-read','media-cancel']},id:{type:'string'},confirm:{type:'boolean'},name:{type:'string'},size:{type:'integer'},offset:{type:'integer'},data:{type:'string'}},required:['action'],additionalProperties:false},handler:io});}};

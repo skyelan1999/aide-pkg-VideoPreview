@@ -1,0 +1,18 @@
+{
+  "linux-arm64": {
+    "url": "https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/download/v0.1.0/video-engine-linux-arm64.tar.gz",
+    "bytes": 8185741,
+    "sha256": "417c580932c2b860d5f190d2a0ed28af6a6bf11908f6baa5afe92d5e08a009ed",
+    "source": "https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/download/v0.1.0/video-engine-corresponding-source-v0.1.0.tar.gz",
+    "sourceSha256": "286b9f3e7ebc68aa78590443585fc18dc618fbd82f441b6899b4d19e42125c77",
+    "sourceBytes": 13207330
+  },
+  "linux-x64": {
+    "url": "https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/download/v0.1.0/video-engine-linux-amd64.tar.gz",
+    "bytes": 8026721,
+    "sha256": "c012e124d923ad7411973bf96bc105ae83251f88f6223134b9b6d8e214329585",
+    "source": "https://github.com/skyelan1999/aide-pkg-VideoPreview/releases/download/v0.1.0/video-engine-corresponding-source-v0.1.0.tar.gz",
+    "sourceSha256": "286b9f3e7ebc68aa78590443585fc18dc618fbd82f441b6899b4d19e42125c77",
+    "sourceBytes": 13207330
+  }
+}

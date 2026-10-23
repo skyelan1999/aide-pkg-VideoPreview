@@ -10,6 +10,9 @@ class Projects(unittest.TestCase):
  def test_otio_gap(self):
   p=inspect(json.dumps({'OTIO_SCHEMA':'Timeline.1','name':'Test','tracks':{'OTIO_SCHEMA':'Stack.1','children':[{'OTIO_SCHEMA':'Track.1','kind':'Video','children':[{'OTIO_SCHEMA':'Gap.1','source_range':{'duration':{'value':24,'rate':24}}},{'OTIO_SCHEMA':'Clip.2','name':'Shot','source_range':{'duration':{'value':48,'rate':24}},'media_reference':{'target_url':'shot.mp4'}}]}]}}).encode(),'t.otio')
   self.assertEqual(p['tracks'][0]['clips'][1]['start'],1);self.assertEqual(p['tracks'][0]['clips'][1]['duration'],2)
+ def test_otio_modern_active_reference(self):
+  obj={'OTIO_SCHEMA':'Timeline.1','tracks':{'OTIO_SCHEMA':'Stack.1','children':[{'OTIO_SCHEMA':'Track.1','children':[{'OTIO_SCHEMA':'Clip.2','media_references':{'A':{'target_url':'shot.mp4'}},'active_media_reference_key':'A','source_range':{'duration':{'value':48,'rate':24}}}]}]}}
+  p=inspect(json.dumps(obj).encode(),'modern.otio');self.assertEqual(p['media'][0]['path'],'shot.mp4');self.assertEqual(p['tracks'][0]['clips'][0]['duration'],2)
  def test_jianying_hour_microseconds(self):
   p=inspect(json.dumps({'tracks':[{'segments':[{'material_id':'a','target_timerange':{'start':3600000000,'duration':5000000}}]}],'materials':{'videos':[{'id':'a','path':'/private/video.mp4'}]}}).encode(),'draft_content.json')
   self.assertEqual(p['tracks'][0]['clips'][0]['start'],3600);self.assertEqual(p['tracks'][0]['clips'][0]['duration'],5)
