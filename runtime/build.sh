@@ -17,7 +17,11 @@ cd engine-build
 python3 - <<'PYEXTRACT'
 import tarfile
 for name in ('ffmpeg-9.0.2.tar.xz','x264.tar.gz'):
- with tarfile.open('/src/runtime/sources/'+name) as t:t.extractall('.',filter='data')
+ with tarfile.open('/src/runtime/sources/'+name) as t:
+  for m in t.getmembers():
+   from pathlib import PurePosixPath
+   if PurePosixPath(m.name).is_absolute() or '..' in PurePosixPath(m.name).parts or not (m.isfile() or m.isdir()):raise ValueError('Unsafe source archive')
+  t.extractall('.')
 PYEXTRACT
 cd x264
 ./configure --prefix=/tmp/engine-build/prefix --enable-static --enable-pic --disable-cli --disable-opencl --disable-asm > /out/build/x264-configure.log 2>&1
