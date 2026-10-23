@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-23",
+  "packageThirdParty": [
+    {
+      "component": "Aide MessagePort bridge",
+      "license": "MIT",
+      "sourceCommit": "1827f3724ebb13325ecb3230018d64cfca4b7c03",
+      "sha256": "2995ec8cbe28df664c381ad1a501f262ab831d6f6e9dd01c9e7c792ed27926b2",
+      "notice": "licenses/Aide-MIT.txt"
+    }
+  ],
+  "excludedCandidates": {
+    "imageio-ffmpeg-0.6.0": {
+      "catalog": {
+        "linux-arm64": {
+          "url": "https://files.pythonhosted.org/packages/33/e7/1925bfbc563c39c1d2e82501d8372734a5c725e53ac3b31b4c2d081e895b/imageio_ffmpeg-0.6.0-py3-none-manylinux2014_aarch64.whl",
+          "bytes": 25632706,
+          "sha256": "1d47bebd83d2c5fc770720d211855f208af8a596c82d17730aa51e815cdee6dc",
+          "source": "imageio-ffmpeg 0.6.0 / FFmpeg 7.0.2",
+          "license": "GPL-3.0-or-later for bundled FFmpeg; retain upstream licenses"
+        },
+        "linux-x64": {
+          "url": "https://files.pythonhosted.org/packages/a0/2d/43c8522a2038e9d0e7dbdf3a61195ecc31ca576fb1527a528c877e87d973/imageio_ffmpeg-0.6.0-py3-none-manylinux2014_x86_64.whl",
+          "bytes": 29498237,
+          "sha256": "c7e46fcec401dd990405049d2e2f475e2b397779df2519b544b8aab515195282",
+          "source": "imageio-ffmpeg 0.6.0 / FFmpeg 7.0.2",
+          "license": "GPL-3.0-or-later for bundled FFmpeg; retain upstream licenses"
+        }
+      },
+      "arm64Flags": [
+        "--enable-gpl",
+        "--enable-version3",
+        "--enable-libx264",
+        "--enable-libx265"
+      ],
+      "arm64License": "GPL-3.0-or-later",
+      "amd64Audit": "NOT_RUN",
+      "redistribution": "DISABLED_PENDING_CORRESPONDING_SOURCE_AND_FULL_DEPENDENCY_AUDIT"
+    }
+  },
+  "codecEngineIncluded": false
+}

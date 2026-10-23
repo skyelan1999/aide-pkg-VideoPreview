@@ -1,0 +1,4 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),m=require('../assets/model.js');
+test('relative bound assets only; no remote/drive/parent paths',()=>{for(const p of ['../a.mp4','/a.mp4','C:\\a.mp4','https://x/a.mp4','file:///a.mp4','a/../../b','a\\b','a//b','./a'])assert.equal(m.safeAsset(p),null,p);assert.equal(m.safeAsset('media/shot one.mp4'),'media/shot one.mp4');});
+test('time formatting is finite and handles hours',()=>{assert.equal(m.time(3601.5),'01:00:01.50');assert.equal(m.time(NaN),'—');});
+test('SRT converts only timestamps and caps large input',()=>{const s=m.srtToVtt('1\r\n00:00:01,000 --> 00:00:02,500\r\nHello, world\r\n');assert.match(s,/WEBVTT/);assert.match(s,/00:00:01.000 --> 00:00:02.500/);assert.match(s,/Hello, world/);assert.throws(()=>m.srtToVtt('random'));assert.throws(()=>m.srtToVtt('a'.repeat(2097153)));});

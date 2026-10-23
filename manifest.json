@@ -1,0 +1,50 @@
+{
+  "id": "video-preview",
+  "name": "Video Preview · 视频预览",
+  "version": "0.1.0",
+  "description": "剪辑工程结构、轨道与素材索引，配合只读视频播放、字幕、截图和循环；独立公共插件。",
+  "author": "skyelan1999",
+  "license": "MIT",
+  "main": "index.js",
+  "workbench": {
+    "protocol": 1,
+    "entry": "viewer.html",
+    "title": "Video Preview",
+    "tools": [
+      "video_preview_io"
+    ],
+    "fileHandler": {
+      "extensions": [
+        ".mp4",
+        ".m4v",
+        ".mov",
+        ".webm",
+        ".mkv",
+        ".avi",
+        ".flv",
+        ".ts",
+        ".mts",
+        ".m2ts",
+        ".mpeg",
+        ".mpg",
+        ".ogv",
+        ".3gp",
+        ".wmv",
+        ".vob",
+        ".prproj",
+        ".fcpxml",
+        ".otio",
+        ".drp",
+        ".kdenlive",
+        ".mlt",
+        ".xmeml",
+        ".json",
+        ".xml",
+        ".aep",
+        ".veg"
+      ],
+      "priority": 10,
+      "editable": false
+    }
+  }
+}
