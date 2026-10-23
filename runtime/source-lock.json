@@ -1,0 +1,18 @@
+{
+  "ffmpeg": {
+    "version": "9.0.2",
+    "url": "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz",
+    "archive": "ffmpeg-9.0.2.tar.xz",
+    "sha256": "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e",
+    "signature": "ffmpeg-9.0.2.tar.xz.asc",
+    "signer": "FCF986EA15E6E293A5644F10B4322F04D67658D8"
+  },
+  "x264": {
+    "commit": "b35605ace3ddf7c1a5d67a2eb553f034aef41d55",
+    "repository": "https://code.videolan.org/videolan/x264.git",
+    "archive": "x264.tar.gz",
+    "sha256": "1f821a7d4af1b45de110ac90092f5963ec3cfe5bfd111fa3066ac0c09d03a738"
+  },
+  "buildImage": "golang:1.26-bookworm@sha256:632dff7351799a5a9954a48dc06670ade72ee44e8c351cdc0e5a57af2fea21af",
+  "sourceChanges": "No changes to upstream source. Configuration-only integration."
+}

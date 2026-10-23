@@ -1,0 +1,31 @@
+name: Build optional video engines
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  engine:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            arch: amd64
+          - runner: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build locked sources in Debian toolchain
+        run: |
+          mkdir -p engine-out
+          docker build -f runtime/Dockerfile -t video-engine-builder .
+          docker run --rm --network none -e JOBS=3 -v "$PWD/engine-out:/out" video-engine-builder
+      - name: Verify isolated engine and package
+        run: |
+          python3 scripts/package_engine.py engine-out ${{ matrix.arch }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: video-engine-linux-${{ matrix.arch }}
+          path: dist/engine/*
