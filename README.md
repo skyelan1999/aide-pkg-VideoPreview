@@ -27,7 +27,7 @@ Limits: 16 MiB project input/decompressed XML, 2 MiB JSON bridge output, 128 MiB
 
 ## Install and build
 
-Install the ZIP under Aide Plugins → Upload, enable, then open a supported file. Requires Aide file-handler/workbench protocol 1 with bound-document methods and Python 3. Source checkout's `scripts/package.py` embeds Aide's MIT bridge and builds a reproducible ZIP; it includes licenses and excludes decoder candidates, tests and caches. A normal user does not compile anything.
+Development candidate: install the ZIP under Aide Plugins → Upload, enable, then open a supported file. Requires Aide file-handler/workbench protocol 1 with bound-document methods and Python 3. Actual video playback additionally requires the local-Blob media host patch in [Aide PR #47](https://github.com/skyelan1999/aide/pull/47); the current stock release has not been accepted for this playback path. No marketplace or plugin Release publication is claimed yet. Source checkout's `scripts/package.py` embeds Aide's MIT bridge and builds a reproducible ZIP; it includes licenses and excludes decoder candidates, tests and caches. A normal user does not compile anything.
 
 `python3 -m unittest discover -s tests -p '*test.py'`; `node --test tests/*.test.cjs`; `python3 scripts/package.py`.
 
