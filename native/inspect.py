@@ -14,10 +14,13 @@ def seconds(value):
 def inspect(data,name):
  if len(data)>MAX:raise ValueError('工程超过 16 MiB 限制')
  out={'format':'','name':name.rsplit('/',1)[-1], 'tracks':[], 'media':[], 'warnings':[], 'sequences':[]}
+ media_paths=set()
  def media(p,label=''):
   if not isinstance(p,str) or not p.strip():return
   if len(out['media'])>=10000:return
-  if not any(m['path']==p for m in out['media']):out['media'].append({'name':label or re.split(r'[/\\]',p)[-1],'path':p,'status':'unverified'})
+  if p not in media_paths:
+   media_paths.add(p)
+   out['media'].append({'name':label or re.split(r'[/\\]',p)[-1],'path':p,'status':'unverified'})
  def track(label,clips,kind='video'):
   if len(out['tracks'])<128:out['tracks'].append({'name':label,'kind':kind,'clips':clips[:2000]})
  def clip(label,start=None,duration=None,source=''):
